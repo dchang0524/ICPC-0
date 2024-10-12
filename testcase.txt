@@ -1,3 +1,17 @@
-10 3
-3 1 10 2 11 15 6 13 14 9
-189 888 99
+8
+A
+B
+B
+C
+C
+A
+AA
+BB
+BB
+CC
+CC
+AA
+ABAB
+BCBC
+ABC
+CBA
