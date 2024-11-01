@@ -57,6 +57,7 @@ int main() {
                 //Proof: s1 -> ... -> r(s1), s2 -> ... -> r(s2), r(s1) = r(s2). Since opertaions are reversible, s1 -> ... -> r(s1) = r(s2) -> ... -> s2
             //If two strings s1 and s2 could be switched into each other, r(s1) = r(s2) has to be true, as r(s1) and r(s2) remains invariant throughout operations.
             //Thus, we only have to check if r(u) = r(v). Thus can be done in O(|u|^2 + |v|^2) time
+                //You can also do this in linear time by using a stack, but it's not necessary
         
         string r_u = reduce(u);
         string r_v = reduce(v);

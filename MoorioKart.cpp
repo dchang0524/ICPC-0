@@ -37,7 +37,22 @@ class DisjointSets {
 	bool connected(int x, int y) { return find(x) == find(y); }
 };
 
-
+ll mult(ll x, ll y, ll m) {
+    //computes x*y mod m
+    return (x*y)%m;
+}
+ll add(ll x, ll y, ll m) {
+    //computes x+y mod m
+    return (x+y)%m;
+}
+ll sub(ll x, ll y, ll m) {
+    //computes x-y mod m
+    return (x-y+m)%m;
+}
+ll div(ll x, ll y, ll m) {
+    //computes x/y mod m
+    return mult(x, inv(y, m), m);
+}
 ll exp(ll x, ll n, ll m) {
    //computes x^n mod m
    assert(n >= 0);
@@ -136,7 +151,15 @@ int main() {
     }
     
     //precompute binomial coefficients
-    
+    vector<ll> choose(numComponents);
+    for (int  i = 0; i < numComponents; i++) {
+        choose[i] = mult(forest[i].size(), forest[i].size()-1, MOD);
+        choose[i] = div(choose[i], 2, MOD);
+    }
+    ll totalMult = 1;
+    for (int i  = 0; i < numComponents; i++) {
+        totalMult = mult(totalMult, choose[i], MOD);
+    }
     
     //knapsack DP
 }
