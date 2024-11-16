@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+//https://usaco.org/index.php?page=viewproblem2&cpid=791
 public class StampPainting {
     static long mod = 1000000007; //10^9 + 7
     public static long exp(long x, long n) {

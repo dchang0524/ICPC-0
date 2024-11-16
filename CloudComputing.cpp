@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-
+//https://oj.uz/problem/view/CEOI18_clo
 using namespace std;
 typedef long long ll;
 

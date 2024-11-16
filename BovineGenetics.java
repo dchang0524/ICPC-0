@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//https://usaco.org/index.php?page=viewproblem2&cpid=1066
 
 public class BovineGenetics {
     static long mod = 1000000007;
