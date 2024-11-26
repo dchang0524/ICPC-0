@@ -49,10 +49,6 @@ ll sub(ll x, ll y, ll m) {
     //computes x-y mod m
     return (x-y+m)%m;
 }
-ll div(ll x, ll y, ll m) {
-    //computes x/y mod m
-    return mult(x, inv(y, m), m);
-}
 ll exp(ll x, ll n, ll m) {
    //computes x^n mod m
    assert(n >= 0);
@@ -65,11 +61,14 @@ ll exp(ll x, ll n, ll m) {
    }
    return res;
 }
-
 ll inv(ll x, ll m) {
    //finds x^-1 mod m
    //requires m to be prime and x to be relatively coprime to m
    return exp(x, m-2, m);
+}
+ll div(ll x, ll y, ll m) {
+    //computes x/y mod m
+    return mult(x, inv(y, m), m);
 }
 
 int main() {

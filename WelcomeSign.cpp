@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 //https://open.kattis.com/contests/nasouth24d1open/problems/welcomesign
+//https://open.kattis.com/problems/welcomesign
 //A simple implementation problem
 using namespace std;
 
@@ -32,7 +33,6 @@ int main() {
     cin.tie(0); cout.tie(0);
     int r, c;
     cin >> r >> c;
-    cout << r << " " << c << endl;
     int numOdd = 0;
     for (int i = 0; i < r; i++) {
         string word;

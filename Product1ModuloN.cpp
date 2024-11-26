@@ -4,6 +4,9 @@
 using namespace std;
 typedef long long ll;
 
+int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
 
 int main() {
    ios_base::sync_with_stdio(0);
@@ -29,8 +32,4 @@ int main() {
         cout << ans[i] << " ";
     }
     cout << "\n";
-}
-
-int gcd(int a, int b) { 
-    return b == 0 ? a : gcd(b, a % b); 
 }

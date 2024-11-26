@@ -1,4 +1,5 @@
 //https://open.kattis.com/contests/nasouth24d1open/problems/duelofcards
+//https://open.kattis.com/problems/duelofcards
 //Sort the decks in increasing order
 //The decks are A and B
 //We want maximum # of wins for A and minimum # of wins for A

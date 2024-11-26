@@ -1,4 +1,5 @@
 //https://open.kattis.com/contests/nasouth24d1open/problems/trianglesofasquare
+//https://open.kattis.com/problems/trianglesofasquare
 //To split a n-gon into triangles, we need n-3 diagonals
 //A given line splits the square into 2 triangles, a triangle and a quadrilateral, or 2 quadrilaterals
     //depends on how many corners of the square the given line lies on
