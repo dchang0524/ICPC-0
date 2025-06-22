@@ -59,7 +59,9 @@ ostream& operator<<(ostream& os, const deque<T>& dq) {
 
 void solve() {
     int N; cin >> N;
-    map<pii, unordered_set<int>> adj;
+    //use map because no hash function for pii
+    //if you want to use hashmap, you can instead do coordinate compression and use vectors
+    map<pii, unordered_set<int>> adj; 
     map<pii, int> edgeID;
     rep1(i, 1, N) {
         int v, p; cin >> v >> p;
@@ -101,18 +103,12 @@ void solve() {
     deque<pii> ans;
     deque<pii> q;
     if (v1.first != -1) {
-        // cout << "trail" << endl;
-        // cout << v1 << " " << v2 << endl;
         q.pb(v1);
     } else {
-        // cout << "circuit" << endl;
-        // cout << adj.begin()->first << ": " << adj.begin()->second << endl;
         q.pb(adj.begin()->first);
     }
-    // cout << "start:" << q[0] << endl;
 
     function<void(pii)> dfs = [&] (pii c) -> void {
-        // cout << "Traversing " << c << endl;
         q.pb(c);
         if (adj[c].size()) {
             int nxt = *adj[c].begin();
@@ -121,12 +117,9 @@ void solve() {
             dfs(mp(nxt, c.second^1));
         }
     };
-    // cout << adj[mp(1, 0)] << endl;
     while (sz(q)) {
         pii curr = q.back();
-        // cout << "Current: " << curr << endl;
         q.pop_back();
-        // cout << adj[curr].size() << endl;
         if (adj[curr].size()) {
             dfs(curr);
         } else {
