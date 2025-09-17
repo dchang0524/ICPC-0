@@ -52,12 +52,50 @@ auto ndvec(size_t head, U &&...u){
 } ////example: auto grid = ndvec<char>(n + 1, m + 1, '_');
 
 void solve() {
-    
+    def(int, N, K);
+    string s; cin >> s;
+    //check no consecutive "1" of size >= k
+    for (int i = 0; i < N; i++) {
+        if (s[i] == '1') {
+            int j = i;
+            while (j < N && s[j] == '1') j++;
+            if (j - i >= K) {
+                cout << "NO\n";
+                return;
+            }
+            i = j - 1;
+        }
+    }
+    cout << "YES\n";
+    set<int> nums;
+    FOR1 (i, 1, N) {
+        nums.insert(i);
+    }
+    vector<int> ans(N);
+    FOR(i, 0, N) {
+        if (s[i] == '0') {
+            ans[i] = *(nums.rbegin());
+            nums.erase(--nums.end());
+        }
+    }
+    FOR (i, 0, N) {
+        if (s[i] == '1') {
+            ans[i] = *(nums.begin());
+            nums.erase(nums.begin());
+        }
+    }
+    FOR (i, 0, N) {
+        cout << ans[i] << " ";
+    }
+    cout << endl;
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    solve();
+    int T; cin >> T;
+    rep (T) {
+        solve();
+    }
 }
 

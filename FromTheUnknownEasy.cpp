@@ -51,8 +51,44 @@ auto ndvec(size_t head, U &&...u){
     return vector<decltype(inner)>(head, inner);
 } ////example: auto grid = ndvec<char>(n + 1, m + 1, '_');
 
+int query(vi words) {
+    cout << "? " << sz(words) << " ";
+    for (int i : words) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout.flush();
+    int x; cin >> x;
+    return x;
+}
+
+void answer(int W) {
+    cout << "! " << W << endl;
+    cout.flush();
+}
+
 void solve() {
-    
+    vi init(1e5, 1);
+    int q_i = query(init);
+    if (q_i == 1) {
+        answer((int)1e5);
+        return;
+    }
+    vi fin;
+    int M = ((1e5 - 1) / (q_i - 1));
+    int m = (1e5)/q_i;
+    if (M-m == 0) {
+        answer(m);
+        return;
+    }
+    FOR (i, 0, M-m) {
+        fin.pb(m);
+        fin.pb(M-m-i);
+    }
+    int qf = query(fin);
+    int x = 2*(M-m) - qf;
+    int W = m + x;
+    answer(W);
 }
 
 int main() {
