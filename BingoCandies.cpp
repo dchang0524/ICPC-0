@@ -8,11 +8,15 @@ using namespace std;
 #define rep(x) for (int neverusedvariable = 0; neverusedvariable < (x); ++neverusedvariable)
 #define FOR(i, a, b) for(int i = a; i < (b); ++i)
 #define FOR1(i, a, b) for(int i = a; i <= (b); ++i)
+#define all(x) (x).begin(), (x).end()
 
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef vector<int> vi;
+typedef vector<vector<int>> vvi;
+typedef vector<ll> vll;
+typedef vector<vector<ll>> vvl;
 typedef unsigned long long ull;
 template <typename T> 
 vector<T> ndvec(size_t size, T initial_value) {
@@ -22,10 +26,23 @@ template <typename T, typename... U>
 auto ndvec(size_t head, U &&...u){
     auto inner = ndvec<T>(u...);
     return vector<decltype(inner)>(head, inner);
-} ////example: auto grid = ndvec<char>(n + 1, m + 1, '_');
+} //example: auto grid = ndvec<char>(n + 1, m + 1, '_');
 
 void solve() {
-    
+    int N; cin >> N;
+    int maxCnt = N*N - N;
+    vector<int> cnts(N*N + 1);
+    for (int i = 0; i < N*N; i++) {
+        int c; cin >> c;
+        cnts[c]++;
+    }
+    for (int c : cnts) {
+        if (c > maxCnt) {
+            cout << "NO" << endl;
+            return;
+        }
+    }
+    cout << "YES" << endl;
 }
 
 int main() {

@@ -8,11 +8,15 @@ using namespace std;
 #define rep(x) for (int neverusedvariable = 0; neverusedvariable < (x); ++neverusedvariable)
 #define FOR(i, a, b) for(int i = a; i < (b); ++i)
 #define FOR1(i, a, b) for(int i = a; i <= (b); ++i)
+#define all(x) (x).begin(), (x).end()
 
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef vector<int> vi;
+typedef vector<vector<int>> vvi;
+typedef vector<ll> vll;
+typedef vector<vector<ll>> vvl;
 typedef unsigned long long ull;
 template <typename T> 
 vector<T> ndvec(size_t size, T initial_value) {
@@ -22,16 +26,27 @@ template <typename T, typename... U>
 auto ndvec(size_t head, U &&...u){
     auto inner = ndvec<T>(u...);
     return vector<decltype(inner)>(head, inner);
-} ////example: auto grid = ndvec<char>(n + 1, m + 1, '_');
+} //example: auto grid = ndvec<char>(n + 1, m + 1, '_');
 
 void solve() {
-    
+    int N; cin >> N;
+    vi A(N);
+    FOR (i, 0, N) {
+        cin >> A[i];
+    }
+    int cnt = 0;
+    FOR (i, 0, N-2) {
+        if (A[i+1] > A[i] && A[i+1] > A[i+2]) {
+            cnt++;
+        }
+    }
+    cout << cnt << endl;
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    int T; cin >> T;
+    int T = 1;
     rep (T) {
         solve();
     }
