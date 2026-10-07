@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+//#include "debugPrints.h"
+
+#define pb push_back
+#define mp make_pair
+#define sz(x) (int)(x).size()
+#define rep(x) for (int neverusedvariable = 0; neverusedvariable < (x); ++neverusedvariable)
+#define FOR(i, a, b) for(int i = a; i < (b); ++i)
+#define FOR1(i, a, b) for(int i = a; i <= (b); ++i)
+#define all(x) (x).begin(), (x).end()
+
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<vector<int>> vvi;
+typedef vector<ll> vll;
+typedef vector<vector<ll>> vvl;
+typedef unsigned long long ull;
+template <typename T> 
+vector<T> ndvec(size_t size, T initial_value) {
+    return vector<T>(size, initial_value);
+}
+template <typename T, typename... U> 
+auto ndvec(size_t head, U &&...u){
+    auto inner = ndvec<T>(u...);
+    return vector<decltype(inner)>(head, inner);
+} //example: auto grid = ndvec<char>(n + 1, m + 1, '_');
+
+void solve() {
+    int N; cin >> N;
+    vi A(N);
+    FOR (i, 0, N) {
+        cin >> A[i];
+    }
+    bool win = false;
+    int start = -1;
+    FOR (i, 0, N) {
+        if (A[i] == 0 && start != -1) {
+            if (i - start != 2) {
+                win = true;
+                break;
+            }
+            start = -1;
+        } else if (A[i] == 1 && start == -1) {
+            start = i;
+        }
+    }
+    if (start != -1) {
+        if (N - start != 2) {
+            win = true;
+        }
+    }
+    if (win) {
+        cout << "Alice" << "\n";
+    } else {
+        cout << "Bob" << "\n";
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    int T; cin >> T;
+    rep (T) {
+        solve();
+    }
+}
+
